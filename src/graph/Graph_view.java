@@ -24,47 +24,12 @@ public class Graph_view extends Frame implements ActionListener,WindowListener{
 
 		addWindowListener(this);
 		setTitle("Graph");
-		setLayout(new FlowLayout(FlowLayout.CENTER));
+		setLayout(new FlowLayout(FlowLayout.LEADING));
 		add(button1);
 		add(button2);
 		button1.addActionListener(this);
 		button2.addActionListener(this);
-		setLayout(new FlowLayout(FlowLayout.CENTER));
-		DefaultCategoryDataset data = new DefaultCategoryDataset();
-		data.addValue(300, "USA", "2005");
-		data.addValue(500, "USA", "2006");
-		data.addValue(120, "USA", "2007");
-		data.addValue(200, "China", "2005");
-		data.addValue(400, "China", "2006");
-		data.addValue(320, "China", "2007");
-		System.out.print("done");
-		   JFreeChart chart = 
-				      ChartFactory.createLineChart("Import Volume",
-				                                   "Year",
-				                                   "Ton",
-				                                   data,
-				                                   PlotOrientation.HORIZONTAL,
-				                                   true,
-				                                   false,
-				                                   false);
 
-				    ChartPanel cpanel = new ChartPanel(chart);
-				    
-				    
-					   JFreeChart cchart = 
-							      ChartFactory.createBarChart("Import Volume",
-							                                   "Year",
-							                                   "Ton",
-							                                   data,
-							                                   PlotOrientation.HORIZONTAL,
-							                                   true,
-							                                   false,
-							                                   false);
-
-							    ChartPanel ccpanel = new ChartPanel(cchart);
-if (a==1){	add(cpanel, BorderLayout.CENTER);}
-if (a==2){	add(ccpanel, BorderLayout.CENTER);}
-	    
 	
        
 
@@ -114,28 +79,61 @@ if (a==2){	add(ccpanel, BorderLayout.CENTER);}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO 自動生成されたメソッド・スタブ		
+		// TODO 自動生成されたメソッド・スタブ	
+		removeAll();
 
+	
+
+		add(button1);
+		add(button2);
+
+		DefaultCategoryDataset data = new DefaultCategoryDataset();
+		data.addValue(300, "USA", "2005");
+		data.addValue(500, "USA", "2006");
+		data.addValue(120, "USA", "2007");
+		data.addValue(200, "China", "2005");
+		data.addValue(400, "China", "2006");
+		data.addValue(320, "China", "2007");
+
+
+		   JFreeChart chart = 
+				      ChartFactory.createLineChart("Import Volume",
+				                                   "Year",
+				                                   "Ton",
+				                                   data,
+				                                   PlotOrientation.HORIZONTAL,
+				                                   true,
+				                                   false,
+				                                   false);
+
+				    ChartPanel cpanel = new ChartPanel(chart);
+				    
+				    
+					   JFreeChart cchart = 
+							      ChartFactory.createBarChart("Import Volume",
+							                                   "Year",
+							                                   "Ton",
+							                                   data,
+							                                   PlotOrientation.HORIZONTAL,
+							                                   true,
+							                                   false,
+							                                   false);
+
+							    ChartPanel ccpanel = new ChartPanel(cchart);
+								setLayout(new FlowLayout(FlowLayout.LEADING));
 		if(e.getSource()==button1){
 
 
-			System.out.println("1");
-
-					    Graph_view graph =   new Graph_view(1);
-						graph.setBounds(5, 5, 800,600);
-						graph.setVisible(true);
+			add(ccpanel);
+						setVisible(true);
 		}
 			
 
 		if(e.getSource()==button2){
-			System.out.println("2");
-	
-			
-			    Graph_view graph =   new Graph_view(2);
-				graph.setBounds(5, 5, 800,600);
-				graph.setVisible(true);
-	
-	}
+
+			add(cpanel);
+			setVisible(true);
+		}
 			
 		}
 
